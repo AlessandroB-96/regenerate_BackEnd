@@ -6,6 +6,7 @@ import javax.persistence.*;
 public class Doctor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false, updatable = false)
     Long idDoc;
     String medCode;
     String name;

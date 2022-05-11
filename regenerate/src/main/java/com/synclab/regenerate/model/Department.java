@@ -9,6 +9,7 @@ public class Department {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     @ManyToOne
     @JoinColumn(name="id", referencedColumnName = "specialist")
+    @Column(nullable = false, updatable = false)
     Long idDepartment;
     String name;
 
