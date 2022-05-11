@@ -1,6 +1,6 @@
 package com.synclab.regenerate.controller;
 
-import com.synclab.regenerate.repository.DoctorRepository;
+import com.synclab.regenerate.service.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -8,5 +8,5 @@ import org.springframework.stereotype.Controller;
 public class DoctorController {
 
     @Autowired
-    private DoctorRepository doctorRepository;
+    private DoctorService doctorService;
 }

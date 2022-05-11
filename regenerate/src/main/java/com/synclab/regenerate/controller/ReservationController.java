@@ -1,6 +1,6 @@
 package com.synclab.regenerate.controller;
 
-import com.synclab.regenerate.repository.ReservationRepository;
+import com.synclab.regenerate.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -8,5 +8,5 @@ import org.springframework.stereotype.Controller;
 public class ReservationController {
 
     @Autowired
-    private ReservationRepository reservationRepository;
+    private ReservationService reservationService;
 }

@@ -1,6 +1,6 @@
 package com.synclab.regenerate.controller;
 
-import com.synclab.regenerate.repository.ShiftRepository;
+import com.synclab.regenerate.service.ShiftService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -8,5 +8,5 @@ import org.springframework.stereotype.Controller;
 public class ShiftController {
 
     @Autowired
-    private ShiftRepository shiftRepository;
+    private ShiftService shiftService;
 }
