@@ -1,34 +1,33 @@
 package com.synclab.regenerate.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Doctor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    Long idDoc;
     String medCode;
     String name;
     String surname;
-    String specialistic;
+    //1 to many with department
+    @OneToMany(targetEntity = Department.class, mappedBy = "Doctor")
+    String specialist;
     Long phone;
 
     public Doctor() {
     }
 
-    public Doctor(String medCode, String name, String surname, String specialistic, Long phone) {
+    public Doctor(String medCode, String name, String surname, String specialist, Long phone) {
         this.medCode = medCode;
         this.name = name;
         this.surname = surname;
-        this.specialistic = specialistic;
+        this.specialist = specialist;
         this.phone = phone;
     }
 
-    public Long getId() {
-        return id;
+    public Long getIdDoc() {
+        return idDoc;
     }
 
     public String getMedCode() {
@@ -55,12 +54,12 @@ public class Doctor {
         this.surname = surname;
     }
 
-    public String getSpecialistic() {
-        return specialistic;
+    public String getSpecialist() {
+        return specialist;
     }
 
-    public void setSpecialistic(String specialistic) {
-        this.specialistic = specialistic;
+    public void setSpecialistic(String specialist) {
+        this.specialist = specialist;
     }
 
     public Long getPhone() {
@@ -74,11 +73,11 @@ public class Doctor {
     @Override
     public String toString() {
         return "Doctor{" +
-                "id=" + id +
+                "id=" + idDoc +
                 ", medCode='" + medCode + '\'' +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
-                ", specialistic='" + specialistic + '\'' +
+                ", specialist='" + specialist + '\'' +
                 ", phone=" + phone +
                 '}';
     }
