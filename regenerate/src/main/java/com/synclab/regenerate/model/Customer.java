@@ -10,15 +10,15 @@ public class Customer {
     @Column(nullable = false, updatable = false)
     Long cF;
     String name;
-    String username;
+    String surname;
     Date dateOfBirth;
 
     public Customer() {
     }
 
-    public Customer(String name, String username, Date dateOfBirth) {
+    public Customer(String name, String surname, Date dateOfBirth) {
         this.name = name;
-        this.username = username;
+        this.surname = surname;
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -34,12 +34,12 @@ public class Customer {
         this.name = name;
     }
 
-    public String getUsername() {
-        return username;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setSurname(String username) {
+        this.surname = username;
     }
 
     public Date getDateOfBirth() {
@@ -55,7 +55,7 @@ public class Customer {
         return "Customer{" +
                 "cF=" + cF +
                 ", name='" + name + '\'' +
-                ", username='" + username + '\'' +
+                ", username='" + surname + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
                 '}';
     }
