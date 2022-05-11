@@ -9,7 +9,7 @@ public class Department {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     @ManyToOne
     @JoinColumn(name="id", referencedColumnName = "specialist")
-    Long id;
+    Long idDepartment;
     String name;
 
     public Department() {
@@ -19,8 +19,8 @@ public class Department {
         this.name = name;
     }
 
-    public Long getId() {
-        return id;
+    public Long getidDepartment() {
+        return idDepartment;
     }
 
     public String getName() {
@@ -29,5 +29,12 @@ public class Department {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Department{" +
+                "name='" + name + '\'' +
+                '}';
     }
 }
