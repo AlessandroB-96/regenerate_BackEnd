@@ -8,19 +8,17 @@ public class Doctor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, updatable = false)
     Long idDoc;
-    String medCode;
     String name;
     String surname;
     //1 to many with department
     @OneToMany(targetEntity = Department.class, mappedBy = "Doctor")
-    String specialist;
+    Long specialist;
     Long phone;
 
     public Doctor() {
     }
 
-    public Doctor(String medCode, String name, String surname, String specialist, Long phone) {
-        this.medCode = medCode;
+    public Doctor(String name, String surname, Long specialist, Long phone) {
         this.name = name;
         this.surname = surname;
         this.specialist = specialist;
@@ -29,14 +27,6 @@ public class Doctor {
 
     public Long getIdDoc() {
         return idDoc;
-    }
-
-    public String getMedCode() {
-        return medCode;
-    }
-
-    public void setMedCode(String medCode) {
-        this.medCode = medCode;
     }
 
     public String getName() {
@@ -55,11 +45,11 @@ public class Doctor {
         this.surname = surname;
     }
 
-    public String getSpecialist() {
+    public Long getSpecialist() {
         return specialist;
     }
 
-    public void setSpecialistic(String specialist) {
+    public void setSpecialistic(Long specialist) {
         this.specialist = specialist;
     }
 
@@ -75,7 +65,6 @@ public class Doctor {
     public String toString() {
         return "Doctor{" +
                 "id=" + idDoc +
-                ", medCode='" + medCode + '\'' +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", specialist='" + specialist + '\'' +
