@@ -14,21 +14,23 @@ public class Doctor {
     String name;
     String surname;
     Long phone;
+    Boolean amOrPm;
 
     @ManyToOne
     @JoinColumn(name = "idDepartment")
     Department idDepartment;
 
-    @OneToMany(mappedBy = "idDoctor")
+    @OneToMany
     Set<Reservation> reservations;
 
     public Doctor() {
     }
 
-    public Doctor(String name, String surname, Long phone) {
+    public Doctor(String name, String surname, Long phone, Boolean amOrPm) {
         this.name = name;
         this.surname = surname;
         this.phone = phone;
+        this.amOrPm = amOrPm;
     }
 
     public Long getIdDoc() {
@@ -51,7 +53,6 @@ public class Doctor {
         this.surname = surname;
     }
 
-
     public Long getPhone() {
         return phone;
     }
@@ -60,6 +61,13 @@ public class Doctor {
         this.phone = phone;
     }
 
+    public Boolean getAmOrPm() {
+        return amOrPm;
+    }
+
+    public void setAmOrPm(Boolean amOrPm) {
+        this.amOrPm = amOrPm;
+    }
 
     @Override
     public String toString() {
