@@ -3,6 +3,8 @@ package com.synclab.regenerate.model;
 import javax.persistence.*;
 import java.util.Set;
 
+//Father of Visit
+//Father of Doctor
 @Entity
 public class Department {
 
@@ -12,9 +14,11 @@ public class Department {
     Long idDepartment;
     String name;
 
-    @OneToMany(mappedBy = "idDoc")
-    private Set<Doctor> doctor;
+    @OneToMany
+    Set<Visit> visits;
 
+    @OneToMany
+    Set<Doctor> doctors;
 
     public Department() {
     }

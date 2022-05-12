@@ -3,6 +3,9 @@ package com.synclab.regenerate.model;
 import javax.persistence.*;
 import java.util.Date;
 
+//Child of Doctor
+//Child of Visit
+//Child of Customer
 @Entity
 public class Reservation {
     @Id
@@ -10,20 +13,26 @@ public class Reservation {
     @Column(nullable = false, updatable = false)
     Long idReservation;
     Long cF;
-    Long idDoc;
-    Long idDepartment;
-    Long idVisit;
     Date hour;
     Date date;
+
+    @ManyToOne
+    @JoinColumn(name = "idDoctor")
+    Doctor idDoctor;
+
+    @ManyToOne
+    @JoinColumn(name = "idVisit")
+    Visit idVisit;
+
+    @ManyToOne
+    @JoinColumn(name = "idCustomer")
+    Customer idCustomer;
 
     public Reservation() {
     }
 
-    public Reservation(Long cF, Long idDoc, Long idDepartment, Long idVisit, Date hour, Date date) {
+    public Reservation(Long cF, Date hour, Date date) {
         this.cF = cF;
-        this.idDoc = idDoc;
-        this.idDepartment = idDepartment;
-        this.idVisit = idVisit;
         this.hour = hour;
         this.date = date;
     }
@@ -44,30 +53,6 @@ public class Reservation {
         this.cF = cF;
     }
 
-    public Long getIdDoc() {
-        return idDoc;
-    }
-
-    public void setIdDoc(Long idDoc) {
-        this.idDoc = idDoc;
-    }
-
-    public Long getIdDepartment() {
-        return idDepartment;
-    }
-
-    public void setIdDepartment(Long idDepartment) {
-        this.idDepartment = idDepartment;
-    }
-
-    public Long getIdVisit() {
-        return idVisit;
-    }
-
-    public void setIdVisit(Long idVisit) {
-        this.idVisit = idVisit;
-    }
-
     public Date getHour() {
         return hour;
     }
@@ -84,12 +69,22 @@ public class Reservation {
         this.date = date;
     }
 
+    public Doctor getIdDoctor() {
+        return idDoctor;
+    }
+
+    public Visit getIdVisit() {
+        return idVisit;
+    }
+
+    public Customer getIdCustomer() {
+        return idCustomer;
+    }
+
     @Override
     public String toString() {
         return "Reservation{" +
                 "cF=" + cF +
-                ", idDoc=" + idDoc +
-                ", idDepartment=" + idDepartment +
                 ", idVisit=" + idVisit +
                 ", hour=" + hour +
                 ", date=" + date +

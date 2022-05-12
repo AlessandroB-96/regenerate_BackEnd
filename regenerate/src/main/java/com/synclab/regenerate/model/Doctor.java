@@ -1,30 +1,34 @@
 package com.synclab.regenerate.model;
 
 import javax.persistence.*;
+import java.util.Set;
 
+//Father of Reservation
+//Child of Department
 @Entity
 public class Doctor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(updatable = false)
-    @ManyToOne
-    @JoinColumn(name="id_department", nullable=false)
     Long idDoc;
     String name;
     String surname;
     Long phone;
-    String specialist;
-    //1 to many with department
 
+    @ManyToOne
+    @JoinColumn(name = "idDepartment")
+    Department idDepartment;
+
+    @OneToMany(mappedBy = "idDoctor")
+    Set<Reservation> reservations;
 
     public Doctor() {
     }
 
-    public Doctor(String name, String surname, Long phone, String specialist) {
+    public Doctor(String name, String surname, Long phone) {
         this.name = name;
         this.surname = surname;
         this.phone = phone;
-        this.specialist = specialist;
     }
 
     public Long getIdDoc() {
@@ -56,13 +60,6 @@ public class Doctor {
         this.phone = phone;
     }
 
-    public String getSpecialist() {
-        return specialist;
-    }
-
-    public void setSpecialist(String specialist) {
-        this.specialist = specialist;
-    }
 
     @Override
     public String toString() {
@@ -71,7 +68,6 @@ public class Doctor {
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", phone=" + phone +
-                ", specialist=" + specialist +
                 '}';
     }
 }

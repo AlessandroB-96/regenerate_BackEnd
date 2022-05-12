@@ -2,7 +2,9 @@ package com.synclab.regenerate.model;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
+//Father of Reservation
 @Entity
 public class Customer {
     @Id
@@ -12,6 +14,9 @@ public class Customer {
     String name;
     String surname;
     Date dateOfBirth;
+
+    @OneToMany
+    Set<Reservation> reservations;
 
     public Customer() {
     }

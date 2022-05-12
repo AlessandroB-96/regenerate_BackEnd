@@ -1,7 +1,10 @@
 package com.synclab.regenerate.model;
 
 import javax.persistence.*;
+import java.util.Set;
 
+//Father of Reservation
+//Child of Department
 @Entity
 public class Visit {
     @Id
@@ -10,12 +13,19 @@ public class Visit {
     Long idVisit;
     String name;
     Integer duration;
-    Long idDepartment;
+
+    @ManyToOne
+    //I have to specify the name of the column otherwise Hibernate will duplicate my name like "Id_Department_Id_Department"
+    @JoinColumn(name = "idDepartment")
+    Department idDepartment;
+
+    @OneToMany
+    Set<Reservation> reservations;
 
     public Visit() {
     }
 
-    public Visit(String name, Integer duration, Long idDepartment) {
+    public Visit(String name, Integer duration, Department idDepartment) {
         this.name = name;
         this.duration = duration;
         this.idDepartment = idDepartment;
@@ -41,11 +51,11 @@ public class Visit {
         this.duration = duration;
     }
 
-    public Long getIdDepartment() {
+    public Department getIdDepartment() {
         return idDepartment;
     }
 
-    public void setIdDepartment(Long idDepartment) {
+    public void setIdDepartment(Department idDepartment) {
         this.idDepartment = idDepartment;
     }
 
