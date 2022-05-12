@@ -1,17 +1,20 @@
 package com.synclab.regenerate.model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Department {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    @ManyToOne
-    @JoinColumn(name="id", referencedColumnName = "specialist")
     @Column(nullable = false, updatable = false)
     Long idDepartment;
     String name;
+
+    @OneToMany(mappedBy = "idDoc")
+    private Set<Doctor> doctor;
+
 
     public Department() {
     }

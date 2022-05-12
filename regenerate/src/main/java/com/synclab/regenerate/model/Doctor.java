@@ -6,23 +6,25 @@ import javax.persistence.*;
 public class Doctor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false, updatable = false)
+    @Column(updatable = false)
+    @ManyToOne
+    @JoinColumn(name="id_department", nullable=false)
     Long idDoc;
     String name;
     String surname;
-    //1 to many with department
-    @OneToMany(targetEntity = Department.class, mappedBy = "Doctor")
-    Long specialist;
     Long phone;
+    String specialist;
+    //1 to many with department
+
 
     public Doctor() {
     }
 
-    public Doctor(String name, String surname, Long specialist, Long phone) {
+    public Doctor(String name, String surname, Long phone, String specialist) {
         this.name = name;
         this.surname = surname;
-        this.specialist = specialist;
         this.phone = phone;
+        this.specialist = specialist;
     }
 
     public Long getIdDoc() {
@@ -45,13 +47,6 @@ public class Doctor {
         this.surname = surname;
     }
 
-    public Long getSpecialist() {
-        return specialist;
-    }
-
-    public void setSpecialistic(Long specialist) {
-        this.specialist = specialist;
-    }
 
     public Long getPhone() {
         return phone;
@@ -61,14 +56,22 @@ public class Doctor {
         this.phone = phone;
     }
 
+    public String getSpecialist() {
+        return specialist;
+    }
+
+    public void setSpecialist(String specialist) {
+        this.specialist = specialist;
+    }
+
     @Override
     public String toString() {
         return "Doctor{" +
                 "id=" + idDoc +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
-                ", specialist='" + specialist + '\'' +
                 ", phone=" + phone +
+                ", specialist=" + specialist +
                 '}';
     }
 }
