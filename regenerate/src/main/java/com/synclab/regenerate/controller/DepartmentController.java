@@ -29,10 +29,17 @@ public class DepartmentController {
     }
 
     //Method that returns the department NAME associated with the given ID
-    @GetMapping("/{id}")
+    @GetMapping("/getName/{id}")
     public ResponseEntity<String> getDepartmentName (@PathVariable("id") Long id) {
-        String departmentName = departmentService.findDepartmentById(id);
+        String departmentName = departmentService.findDepartmentNameById(id);
         return new ResponseEntity<>(departmentName, HttpStatus.OK);
     }
+
+    @GetMapping("/getId/{name}")
+    public ResponseEntity<Long> getDepartmentIdByName (@PathVariable("name") String name) {
+        Long departmentId = departmentService.findIdDepartmentByName(name);
+        return new ResponseEntity<>(departmentId, HttpStatus.OK);
+    }
+
 
 }
