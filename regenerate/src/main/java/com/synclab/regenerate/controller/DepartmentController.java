@@ -23,7 +23,7 @@ public class DepartmentController {
 
     //Method that returns ALL departments
     @GetMapping("/all")
-    public ResponseEntity<List<Department>> getAlDepartment(){
+    public ResponseEntity<List<Department>> getAllDepartment(){
         List<Department> departmentList = departmentService.findAllDepartment();
         return new ResponseEntity<>(departmentList, HttpStatus.OK);
     }
