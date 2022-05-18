@@ -13,6 +13,7 @@ public class Doctor {
     Long idDoc;
     String name;
     String surname;
+    String imageUrl;
     Long phone;
     Boolean amOrPm;
 
@@ -26,12 +27,14 @@ public class Doctor {
     public Doctor() {
     }
 
-    public Doctor(String name, String surname, Long phone, Boolean amOrPm) {
+    public Doctor(String name, String surname, Long phone, Boolean amOrPm, String imageUrl) {
         this.name = name;
         this.surname = surname;
         this.phone = phone;
         this.amOrPm = amOrPm;
+        this.imageUrl = imageUrl;
     }
+
 
     public Long getIdDoc() {
         return idDoc;
@@ -69,12 +72,17 @@ public class Doctor {
         this.amOrPm = amOrPm;
     }
 
+    public String getImageUrl() { return imageUrl; }
+
+    public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
+
     @Override
     public String toString() {
         return "Doctor{" +
                 "id=" + idDoc +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
                 ", phone=" + phone +
                 '}';
     }
