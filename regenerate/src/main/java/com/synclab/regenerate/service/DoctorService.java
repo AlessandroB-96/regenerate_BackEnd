@@ -19,6 +19,7 @@ public class DoctorService {
         return doctorRepository.findAll();
     }
 
+
     public List<Doctor> findDoctorsByIdDepartment(Department id) {
         return doctorRepository.findDoctorByIdDepartment(id);
     }

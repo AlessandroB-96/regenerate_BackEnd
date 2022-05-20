@@ -27,12 +27,13 @@ public class Doctor {
     public Doctor() {
     }
 
-    public Doctor(String name, String surname, Long phone, Boolean amOrPm, String imageUrl ) {
+    public Doctor(String name, String surname, Long phone, Boolean amOrPm, String imageUrl, Department idDepartment) {
         this.name = name;
         this.surname = surname;
         this.phone = phone;
         this.amOrPm = amOrPm;
         this.imageUrl = imageUrl ;
+        this.idDepartment = idDepartment;
     }
 
 
@@ -75,6 +76,10 @@ public class Doctor {
     public String getImageUrl() { return imageUrl ; }
 
     public void setImageUrl(String imageUrl ) { this.imageUrl = imageUrl; }
+
+    public Department getIdDepartment() {
+        return idDepartment;
+    }
 
     @Override
     public String toString() {

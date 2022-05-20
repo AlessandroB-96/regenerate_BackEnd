@@ -31,10 +31,11 @@ public class Reservation {
     public Reservation() {
     }
 
-    public Reservation(Long cF, Date hour, Date date) {
-        this.cF = cF;
+    public Reservation( Date date, Date hour, Doctor idDoctor, Visit idVisit ) {
         this.hour = hour;
         this.date = date;
+        this.idDoctor = idDoctor;
+        this.idVisit = idVisit;
     }
 
     public Long getIdReservation() {
