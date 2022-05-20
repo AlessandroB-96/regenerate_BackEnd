@@ -13,13 +13,14 @@ import java.util.List;
 public class DoctorService {
 
     @Autowired
-    private DoctorRepository doctorRepositery;
+    private DoctorRepository doctorRepository;
 
     public List<Doctor> getAllDoctors(){
-        return doctorRepositery.findAll();
+        return doctorRepository.findAll();
     }
 
     public List<Doctor> findDoctorsByIdDepartment(Department id) {
-        return doctorRepositery.findDoctorByIdDepartment(id);
+        return doctorRepository.findDoctorByIdDepartment(id);
     }
+
 }
