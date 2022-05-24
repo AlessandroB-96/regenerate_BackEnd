@@ -22,4 +22,9 @@ public class VisitService {
         return visitRepository.findVisitByIdDepartment(id);
     }
 
+    public Visit findIdVisitByName(String name){
+        return visitRepository.findVisitFromVisitByName(name);
+    }
+
+
 }

@@ -32,4 +32,10 @@ public class VisitController {
         return new ResponseEntity<>(visits, HttpStatus.OK);
     }
 
+    @GetMapping("/getVisit/{name}")
+    public ResponseEntity<Visit> getVisitByName (@PathVariable("name") String name){
+        Visit id = visitService.findIdVisitByName(name);
+        return new ResponseEntity<>(id, HttpStatus.OK);
+    }
+
 }
