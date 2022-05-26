@@ -1,6 +1,9 @@
 package com.synclab.regenerate.controller;
 
+import com.synclab.regenerate.model.Customer;
+import com.synclab.regenerate.model.Department;
 import com.synclab.regenerate.model.Reservation;
+import com.synclab.regenerate.model.Visit;
 import com.synclab.regenerate.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -37,4 +40,9 @@ public class ReservationController {
         return new ResponseEntity<>(reservations, HttpStatus.OK);
     }
 
+    @GetMapping("/find/{id}")
+    public ResponseEntity<List<Reservation>> getReservationByIdCustomer (@PathVariable("id") Customer id) {
+        List<Reservation> reservations = reservationService.findReservationByIdCustomer(id);
+        return new ResponseEntity<>(reservations, HttpStatus.OK);
+    }
 }
