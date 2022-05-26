@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class ReservationService {
@@ -18,4 +19,9 @@ public class ReservationService {
     public Reservation addReservation (Reservation reservation){
         return reservationRepository.save(reservation);
     }
+
+    public List<Reservation> allReservation ( ){
+        return reservationRepository.findAll();
+    }
+
 }
