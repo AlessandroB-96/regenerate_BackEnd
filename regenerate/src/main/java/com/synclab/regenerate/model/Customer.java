@@ -10,7 +10,7 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, updatable = false)
-    Long cF;
+    Long idCustomer;
     String name;
     String surname;
     Date dateOfBirth;
@@ -21,14 +21,15 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(String name, String surname, Date dateOfBirth) {
+    public Customer( Long idCustomer, String name, String surname, Date dateOfBirth) {
+        this.idCustomer = idCustomer;
         this.name = name;
         this.surname = surname;
         this.dateOfBirth = dateOfBirth;
     }
 
-    public Long getcF() {
-        return cF;
+    public Long getIdCustomer() {
+        return idCustomer;
     }
 
     public String getName() {
@@ -58,7 +59,7 @@ public class Customer {
     @Override
     public String toString() {
         return "Customer{" +
-                "cF=" + cF +
+                "cF=" + idCustomer +
                 ", name='" + name + '\'' +
                 ", username='" + surname + '\'' +
                 ", dateOfBirth=" + dateOfBirth +

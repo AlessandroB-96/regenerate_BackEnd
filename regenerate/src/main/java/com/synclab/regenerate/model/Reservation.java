@@ -12,7 +12,6 @@ public class Reservation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, updatable = false)
     Long idReservation;
-    Long cF;
     @Column(name ="hour", columnDefinition = "TIME")
     Date hour;
     @Column(name ="date", columnDefinition = "DATE")
@@ -33,12 +32,11 @@ public class Reservation {
     public Reservation() {
     }
 
-    public Reservation( java.sql.Date date, Date hour, Doctor idDoctor, Visit idVisit, Long cF ) {
+    public Reservation( java.sql.Date date, Date hour, Doctor idDoctor, Visit idVisit ) {
         this.hour = hour;
         this.date = date;
         this.idDoctor = idDoctor;
         this.idVisit = idVisit;
-        this.cF = cF;
     }
 
     public Long getIdReservation() {
@@ -49,13 +47,6 @@ public class Reservation {
         this.idReservation = idReservation;
     }
 
-    public Long getcF() {
-        return cF;
-    }
-
-    public void setcF(Long cF) {
-        this.cF = cF;
-    }
 
     public Date getHour() {
         return hour;
@@ -88,7 +79,6 @@ public class Reservation {
     @Override
     public String toString() {
         return "Reservation{" +
-                "cF=" + cF +
                 ", idVisit=" + idVisit +
                 ", hour=" + hour +
                 ", date=" + date +
