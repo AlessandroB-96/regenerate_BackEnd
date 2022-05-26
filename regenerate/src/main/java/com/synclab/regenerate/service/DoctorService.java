@@ -24,4 +24,8 @@ public class DoctorService {
         return doctorRepository.findDoctorByIdDepartment(id);
     }
 
+    public Doctor getDoctorIdByName (String name){
+        return doctorRepository.findIdDoctorByName(name);
+    }
+
 }

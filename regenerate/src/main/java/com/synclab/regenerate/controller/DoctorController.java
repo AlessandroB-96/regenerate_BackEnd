@@ -31,4 +31,11 @@ public class DoctorController {
         List<Doctor> doctors = doctorService.findDoctorsByIdDepartment(id);
         return new ResponseEntity<>(doctors, HttpStatus.OK);
     }
+
+    @GetMapping("getDoctor/{name}")
+    public ResponseEntity<Doctor> getDoctorIdByName (@PathVariable("name") String name){
+        Doctor idDoc = doctorService.getDoctorIdByName(name);
+        return new ResponseEntity<>(idDoc, HttpStatus.OK);
+    }
+
 }
