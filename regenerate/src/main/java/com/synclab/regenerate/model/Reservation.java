@@ -12,8 +12,7 @@ public class Reservation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, updatable = false)
     Long idReservation;
-    @Column(name ="hour", columnDefinition = "TIME")
-    Date hour;
+    String hour;
     @Column(name ="date", columnDefinition = "DATE")
     java.sql.Date date;
 
@@ -32,7 +31,7 @@ public class Reservation {
     public Reservation() {
     }
 
-    public Reservation( java.sql.Date date, Date hour, Doctor idDoctor, Visit idVisit ) {
+    public Reservation( java.sql.Date date, String hour, Doctor idDoctor, Visit idVisit ) {
         this.hour = hour;
         this.date = date;
         this.idDoctor = idDoctor;
@@ -48,11 +47,11 @@ public class Reservation {
     }
 
 
-    public Date getHour() {
+    public String getHour() {
         return hour;
     }
 
-    public void setHour(Date hour) {
+    public void setHour(String hour) {
         this.hour = hour;
     }
 
