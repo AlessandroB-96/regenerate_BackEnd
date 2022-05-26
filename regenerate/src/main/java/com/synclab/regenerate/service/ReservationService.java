@@ -24,4 +24,8 @@ public class ReservationService {
         return reservationRepository.findAll();
     }
 
+    public List<Reservation> reservationByDate (java.sql.Date date) {
+        return reservationRepository.findReservationByDate(date);
+    }
+
 }

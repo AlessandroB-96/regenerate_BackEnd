@@ -3,14 +3,13 @@ package com.synclab.regenerate.controller;
 import com.synclab.regenerate.model.Reservation;
 import com.synclab.regenerate.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -31,4 +30,11 @@ public class ReservationController {
         List<Reservation> allReservation = reservationService.allReservation();
         return new ResponseEntity<>(allReservation, HttpStatus.OK);
     }
+
+    @GetMapping("/{date}")
+    public ResponseEntity<List<Reservation>> reservationByDate (@PathVariable ("date") java.sql.Date date ) {
+        List<Reservation> reservations = reservationService.reservationByDate(date);
+        return new ResponseEntity<>(reservations, HttpStatus.OK);
+    }
+
 }

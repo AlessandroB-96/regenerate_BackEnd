@@ -16,7 +16,7 @@ public class Reservation {
     @Column(name ="hour", columnDefinition = "TIME")
     Date hour;
     @Column(name ="date", columnDefinition = "DATE")
-    Date date;
+    java.sql.Date date;
 
     @ManyToOne
     @JoinColumn(name = "idDoctor")
@@ -33,7 +33,7 @@ public class Reservation {
     public Reservation() {
     }
 
-    public Reservation( Date date, Date hour, Doctor idDoctor, Visit idVisit, Long cF ) {
+    public Reservation( java.sql.Date date, Date hour, Doctor idDoctor, Visit idVisit, Long cF ) {
         this.hour = hour;
         this.date = date;
         this.idDoctor = idDoctor;
@@ -69,7 +69,7 @@ public class Reservation {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(java.sql.Date date) {
         this.date = date;
     }
 
