@@ -1,8 +1,6 @@
 package com.synclab.regenerate.service;
 
-import com.synclab.regenerate.model.Doctor;
-import com.synclab.regenerate.model.Reservation;
-import com.synclab.regenerate.model.Visit;
+import com.synclab.regenerate.model.*;
 import com.synclab.regenerate.repository.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,5 +25,8 @@ public class ReservationService {
     public List<Reservation> reservationByDate (java.sql.Date date) {
         return reservationRepository.findReservationByDate(date);
     }
+    public List<Reservation> findReservationByIdCustomer(Customer id) {
 
+        return reservationRepository.findReservationByIdCustomer(id);
+    }
 }
