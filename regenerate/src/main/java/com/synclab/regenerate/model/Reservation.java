@@ -13,7 +13,9 @@ public class Reservation {
     @Column(nullable = false, updatable = false)
     Long idReservation;
     Long cF;
+    @Column(name ="hour", columnDefinition = "TIME")
     Date hour;
+    @Column(name ="date", columnDefinition = "DATE")
     Date date;
 
     @ManyToOne
